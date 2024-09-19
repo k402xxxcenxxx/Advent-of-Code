@@ -2,6 +2,7 @@ from src.solver import solver
 
 import os
 
+
 def test_run_example():
     with open(os.path.join(os.path.dirname(__file__), "expected_result.txt"), "r") as fd:
         expected_result = int(fd.read())
