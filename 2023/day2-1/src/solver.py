@@ -20,10 +20,10 @@ def solver(filepath: str, r: int, g: int, b: int) -> int:
                     c = color.strip()
                     sep_idx = c.find(" ")
                     match c[sep_idx+1:]:
-                        case "red"  : possible_num = r
+                        case "red": possible_num = r
                         case "green": possible_num = g
-                        case "blue" : possible_num = b
-                        case _ : raise Exception(f"Unknown color char: {c[sep_idx+1:]}")
+                        case "blue": possible_num = b
+                        case _: raise Exception(f"Unknown color char: {c[sep_idx+1:]}")
 
                     if int(c[:sep_idx]) > possible_num:
                         is_valid = False
