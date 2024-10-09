@@ -21,14 +21,15 @@ def solver(filepath: str) -> int:
 
             if ord('0') <= ord(data[y][cur_x]) <= ord('9'):
                 # Check surrounding
-                for dy in [-1, 0 , 1]:
-                    for dx in [-1, 0 , 1]:
-                        if 0 <= cur_x + dx < cols and 0 <= y + dy < rows:
-                            # not period and not digits
-                            if data[y + dy][cur_x + dx] != '.' and data[y + dy][cur_x + dx] != '\n':
-                                if not ((ord('0') <= ord(data[y + dy][cur_x + dx]) <= ord('9'))):
-                                    is_valid = True
-                
+                for dy in [-1, 0, 1]:
+                    for dx in [-1, 0, 1]:
+                        if 0 <= cur_x + dx < cols \
+                            and 0 <= y + dy < rows \
+                            and data[y + dy][cur_x + dx] != '.' \
+                            and data[y + dy][cur_x + dx] != '\n' \
+                            and not ((ord('0') <= ord(data[y + dy][cur_x + dx]) <= ord('9'))):
+                            is_valid = True
+
                 # calculate number
                 res = 10 * res + int(data[y][cur_x])
             else:
@@ -36,8 +37,7 @@ def solver(filepath: str) -> int:
 
         if not is_valid:
             res = 0
-        else:
-            print(res)
+
         return res, x_offset
 
     y = 0
